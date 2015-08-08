@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: 5a1bebfa1592bb246a7333727f931600
+timeCreated: 1438343194
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: bottom
+    100002: cluster2Handle
+    100004: cluster3Handle
+    100006: curve1
+    100008: fishingRod
+    100010: //RootNode
+    100012: handleCluster
+    100014: joint10
+    100016: joint11
+    100018: joint12
+    100020: joint13
+    100022: joint14
+    100024: joint15
+    100026: joint16
+    100028: joint17
+    100030: joint18
+    100032: joint19
+    100034: joint2
+    100036: joint20
+    100038: joint21
+    100040: joint22
+    100042: joint23
+    100044: joint24
+    100046: joint25
+    100048: joint26
+    100050: joint3
+    100052: joint4
+    100054: joint5
+    100056: joint6
+    100058: joint7
+    100060: joint8
+    100062: joint9
+    100064: left
+    100066: rotatingThingy
+    100068: tipCluster
+    400000: bottom
+    400002: cluster2Handle
+    400004: cluster3Handle
+    400006: curve1
+    400008: fishingRod
+    400010: //RootNode
+    400012: handleCluster
+    400014: joint10
+    400016: joint11
+    400018: joint12
+    400020: joint13
+    400022: joint14
+    400024: joint15
+    400026: joint16
+    400028: joint17
+    400030: joint18
+    400032: joint19
+    400034: joint2
+    400036: joint20
+    400038: joint21
+    400040: joint22
+    400042: joint23
+    400044: joint24
+    400046: joint25
+    400048: joint26
+    400050: joint3
+    400052: joint4
+    400054: joint5
+    400056: joint6
+    400058: joint7
+    400060: joint8
+    400062: joint9
+    400064: left
+    400066: rotatingThingy
+    400068: tipCluster
+    2300000: rotatingThingy
+    3300000: rotatingThingy
+    4300000: fishingRod
+    4300002: rotatingThingy
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: fishingRod
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

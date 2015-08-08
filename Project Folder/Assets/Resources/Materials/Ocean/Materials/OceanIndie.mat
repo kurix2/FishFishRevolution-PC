@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: OceanIndie
+  m_Shader: {fileID: 4800000, guid: 20222405c00c7624c94d4b95c4abe178, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SkyBox
+        second:
+          m_Texture: {fileID: 8900000, guid: db7d862e7ac194442b14435b109001bf, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Map0
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Map1
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _FresnelLookUp
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalMap0
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalMap1
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalMap2
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalMap3
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalMap01
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalMap23
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SlopeMap01
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SlopeMap23
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _HeightMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Shininess
+        second: .078125
+      data:
+        first:
+          name: _SunPow
+        second: 256
+      data:
+        first:
+          name: _LodFadeDist
+        second: 2000
+      data:
+        first:
+          name: _SampleScale
+        second: 1
+      data:
+        first:
+          name: _EmmisionStr
+        second: .0500000007
+    m_Colors:
+      data:
+        first:
+          name: _Scale
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _SampleScale
+        second: {r: .5, g: 1, b: 0, a: 0}
+      data:
+        first:
+          name: _SeaColor
+        second: {r: .019607842, g: .095708169, b: .156862736, a: 1}
+      data:
+        first:
+          name: _GridSizes
+        second: {r: 5488, g: 392, b: 28, a: 2}
+      data:
+        first:
+          name: _SunColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _SunDir
+        second: {r: -0, g: .707106888, b: -.707106709, a: 0}
+      data:
+        first:
+          name: _ReflectColor
+        second: {r: 1, g: 1, b: 1, a: .5}

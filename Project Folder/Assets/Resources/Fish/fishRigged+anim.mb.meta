@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: e6e9328f7fbdc4f439042148196572cc
+timeCreated: 1433491169
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: fishGeom02
+    100002: fishGrp
+    100004: fishHead_end_JNT
+    100006: fishHead_SEG01_JNT
+    100008: fishHead_SEG02_JNT
+    100010: fishLowerBackFin_L_end_JNT
+    100012: fishLowerBackFin_L_JNT
+    100014: fishLowerBackFin_R_end_JNT
+    100016: fishLowerBackFin_R_JNT
+    100018: fishLowerFrontFin_L_end_JNT
+    100020: fishLowerFrontFin_L_JNT
+    100022: fishLowerFrontFin_R_end_JNT
+    100024: fishLowerFrontFin_R_JNT
+    100026: fishMain
+    100028: fishMouth_end_JNT
+    100030: fishMouth_JNT
+    100032: //RootNode
+    100034: fishRoot_JNT
+    100036: fishTail_end_JNT
+    100038: fishTail_SEG01_JNT
+    100040: fishTail_SEG02_JNT
+    100042: fishTail_SEG03_JNT
+    100044: fishTail_SEG04_JNT
+    100046: fishTail_SEG05_JNT
+    100048: left
+    400000: fishGeom02
+    400002: fishGrp
+    400004: fishHead_end_JNT
+    400006: fishHead_SEG01_JNT
+    400008: fishHead_SEG02_JNT
+    400010: fishLowerBackFin_L_end_JNT
+    400012: fishLowerBackFin_L_JNT
+    400014: fishLowerBackFin_R_end_JNT
+    400016: fishLowerBackFin_R_JNT
+    400018: fishLowerFrontFin_L_end_JNT
+    400020: fishLowerFrontFin_L_JNT
+    400022: fishLowerFrontFin_R_end_JNT
+    400024: fishLowerFrontFin_R_JNT
+    400026: fishMain
+    400028: fishMouth_end_JNT
+    400030: fishMouth_JNT
+    400032: //RootNode
+    400034: fishRoot_JNT
+    400036: fishTail_end_JNT
+    400038: fishTail_SEG01_JNT
+    400040: fishTail_SEG02_JNT
+    400042: fishTail_SEG03_JNT
+    400044: fishTail_SEG04_JNT
+    400046: fishTail_SEG05_JNT
+    400048: left
+    4300000: fishGeom02
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: fishGeom02
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 112
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: fishGrp
+        weight: 1
+      - path: fishGrp/fishGeom02
+        weight: 1
+      - path: fishGrp/fishMain
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishHead_SEG01_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishHead_SEG01_JNT/fishHead_SEG02_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishHead_SEG01_JNT/fishHead_SEG02_JNT/fishHead_end_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishHead_SEG01_JNT/fishHead_SEG02_JNT/fishMouth_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishHead_SEG01_JNT/fishHead_SEG02_JNT/fishMouth_JNT/fishMouth_end_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishLowerFrontFin_L_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishLowerFrontFin_L_JNT/fishLowerFrontFin_L_end_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishLowerFrontFin_R_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishLowerFrontFin_R_JNT/fishLowerFrontFin_R_end_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishTail_SEG02_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishTail_SEG02_JNT/fishTail_SEG03_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishTail_SEG02_JNT/fishTail_SEG03_JNT/fishLowerBackFin_L_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishTail_SEG02_JNT/fishTail_SEG03_JNT/fishLowerBackFin_L_JNT/fishLowerBackFin_L_end_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishTail_SEG02_JNT/fishTail_SEG03_JNT/fishLowerBackFin_R_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishTail_SEG02_JNT/fishTail_SEG03_JNT/fishLowerBackFin_R_JNT/fishLowerBackFin_R_end_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishTail_SEG02_JNT/fishTail_SEG03_JNT/fishTail_SEG04_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishTail_SEG02_JNT/fishTail_SEG03_JNT/fishTail_SEG04_JNT/fishTail_SEG05_JNT
+        weight: 1
+      - path: fishGrp/fishMain/fishRoot_JNT/fishTail_SEG01_JNT/fishTail_SEG02_JNT/fishTail_SEG03_JNT/fishTail_SEG04_JNT/fishTail_SEG05_JNT/fishTail_end_JNT
+        weight: 1
+      - path: left
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

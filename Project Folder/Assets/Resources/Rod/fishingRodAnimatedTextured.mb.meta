@@ -1,0 +1,230 @@
+fileFormatVersion: 2
+guid: 1b040cf59bcc5564bbad524660b7a002
+timeCreated: 1438329595
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: bottom
+    100002: cluster2Handle
+    100004: cluster3Handle
+    100006: curve1
+    100008: //RootNode
+    100010: group1
+    100012: group2
+    100014: group3
+    100016: group4
+    100018: group5
+    100020: handleCluster
+    100022: ikHandle1
+    100024: joint10
+    100026: joint11
+    100028: joint12
+    100030: joint13
+    100032: joint14
+    100034: joint15
+    100036: joint16
+    100038: joint17
+    100040: joint18
+    100042: joint19
+    100044: joint2
+    100046: joint20
+    100048: joint21
+    100050: joint22
+    100052: joint23
+    100054: joint24
+    100056: joint25
+    100058: joint26
+    100060: joint3
+    100062: joint4
+    100064: joint5
+    100066: joint6
+    100068: joint7
+    100070: joint8
+    100072: joint9
+    100074: left
+    100076: polySurface25
+    100078: polySurface44
+    100080: polySurface44 1
+    100082: polySurface45
+    100084: polySurface46
+    100086: polySurface47
+    100088: polySurface48
+    100090: polySurface49
+    100092: polySurface50
+    100094: polySurface51
+    100096: polySurface52
+    100098: polySurface53
+    100100: polySurface54
+    100102: polySurface55
+    100104: polySurface56
+    100106: polySurface57
+    100108: polySurface58
+    100110: polySurface59
+    100112: polySurface59 1
+    100114: polySurface60
+    100116: polySurface61
+    100118: tipCluster
+    100120: transform1
+    100122: transform10
+    100124: transform11
+    100126: transform12
+    100128: transform13
+    100130: transform14
+    100132: transform15
+    100134: transform16
+    100136: transform17
+    100138: transform18
+    100140: transform19
+    100142: transform2
+    100144: transform3
+    100146: transform4
+    100148: transform5
+    100150: transform6
+    100152: transform7
+    100154: transform8
+    100156: transform9
+    400000: bottom
+    400002: cluster2Handle
+    400004: cluster3Handle
+    400006: curve1
+    400008: //RootNode
+    400010: group1
+    400012: group2
+    400014: group3
+    400016: group4
+    400018: group5
+    400020: handleCluster
+    400022: ikHandle1
+    400024: joint10
+    400026: joint11
+    400028: joint12
+    400030: joint13
+    400032: joint14
+    400034: joint15
+    400036: joint16
+    400038: joint17
+    400040: joint18
+    400042: joint19
+    400044: joint2
+    400046: joint20
+    400048: joint21
+    400050: joint22
+    400052: joint23
+    400054: joint24
+    400056: joint25
+    400058: joint26
+    400060: joint3
+    400062: joint4
+    400064: joint5
+    400066: joint6
+    400068: joint7
+    400070: joint8
+    400072: joint9
+    400074: left
+    400076: polySurface25
+    400078: polySurface44
+    400080: polySurface44 1
+    400082: polySurface45
+    400084: polySurface46
+    400086: polySurface47
+    400088: polySurface48
+    400090: polySurface49
+    400092: polySurface50
+    400094: polySurface51
+    400096: polySurface52
+    400098: polySurface53
+    400100: polySurface54
+    400102: polySurface55
+    400104: polySurface56
+    400106: polySurface57
+    400108: polySurface58
+    400110: polySurface59
+    400112: polySurface59 1
+    400114: polySurface60
+    400116: polySurface61
+    400118: tipCluster
+    400120: transform1
+    400122: transform10
+    400124: transform11
+    400126: transform12
+    400128: transform13
+    400130: transform14
+    400132: transform15
+    400134: transform16
+    400136: transform17
+    400138: transform18
+    400140: transform19
+    400142: transform2
+    400144: transform3
+    400146: transform4
+    400148: transform5
+    400150: transform6
+    400152: transform7
+    400154: transform8
+    400156: transform9
+    2300000: polySurface59 1
+    3300000: polySurface59 1
+    4300000: polySurface44
+    4300002: polySurface59
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: polySurface44 1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
