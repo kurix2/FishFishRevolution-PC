@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Bobber : MonoBehaviour {
 
+    //This comment shows that this script was successfully changed and can be seen after being pushed to github.
+
     private bool hitOcean;
     public bool reelMeUp;
     Rigidbody rb;
