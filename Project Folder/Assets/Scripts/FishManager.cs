@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class FishManager : MonoBehaviour
 {
+    public static FishManager FishM;
 
     public TextAsset FishList;
     public List<Fish> fish = new List<Fish>();
@@ -18,10 +19,20 @@ public class FishManager : MonoBehaviour
 
    public GUISkin guiStyle;
 
+    public NetworkView nView;
     Fish hookedFish;
+
+    void Awake()
+    {
+        if (FishM == null)
+        {
+            FishM = this;
+        }
+    }
 
     void Start()
     {
+     
         readFishList();
 
     }
@@ -56,8 +67,8 @@ public class FishManager : MonoBehaviour
                 string test1 = "Prefabs/Fish/Icons/" + caughtFish[i].getIcon();
              
 
-                Debug.Log("1 " + test1);
-                Debug.Log("2 " + test1);
+              //  Debug.Log("1 " + test1);
+               // Debug.Log("2 " + test1);
 
 
                 //string actualPathtoLoad = "Prefabs/Fish/Icons/BigMouthBassIcon";
@@ -114,7 +125,7 @@ public class FishManager : MonoBehaviour
         hookedFish.randomize();
 
         // Remove me, for debugging only
-       // keepFish(hookedFish);
+       keepFish(hookedFish);
 
         return hookedFish;
     }
@@ -123,15 +134,15 @@ public class FishManager : MonoBehaviour
 
     public void keepFish(Fish caught)
     {
+
+      
+
         caughtFish.Add(caught);
 
         Debug.Log("You caught a: " + caughtFish[caughtFish.Count - 1].getName() + " Weight: " + caughtFish[caughtFish.Count - 1].getWeight());
-
-        if (caughtFish.Count == 3)
-        {
-            
-            // Game is over, player got 3 fish
-        }
-
+       
+       // return fishString;
     }
+
+
 }

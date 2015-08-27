@@ -4,6 +4,8 @@ using System.Collections;
 
 public class NetworkManager : MonoBehaviour {
 
+    public static NetworkView nView;
+
 	public Button startServerButton;
     public InputField portInput;
 
@@ -24,6 +26,15 @@ public class NetworkManager : MonoBehaviour {
 
         //countDownTimer = GameObject.Find("Timer Object");
      
+    }
+
+    void Awake()
+    {
+        if (nView == null)
+        {
+            //nView = GetComponent<NetworkView>();
+            //Debug.Log("Setting Nview");
+        }
     }
  
     void Update()

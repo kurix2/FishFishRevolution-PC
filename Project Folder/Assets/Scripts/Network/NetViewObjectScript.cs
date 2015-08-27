@@ -47,7 +47,7 @@ public class NetViewObjectScript : MonoBehaviour
     [RPC]
     public void vibrate()
     {
-        Debug.Log("Vibrate");
+       // Debug.Log("Vibrate");
        // Handheld.Vibrate();
     }
 

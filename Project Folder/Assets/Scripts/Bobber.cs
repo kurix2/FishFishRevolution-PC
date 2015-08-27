@@ -15,22 +15,14 @@ public class Bobber : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    void OnCollisionEnter(Collision col)
+	void Update ()
     {
-        if (col.gameObject.name == "Ocean")
+        if (transform.position.y < -1 && !hitOcean)
         {
-
-            Debug.Log("hit ocean");
+            Debug.Log("-1");
             rb.useGravity = false;
             rb.isKinematic = true;
             hitOcean = true;
-            
-            //rigidbody.velocity = new Vector3(0, 0, 0);
-           
         }
     }
 
@@ -39,8 +31,6 @@ public class Bobber : MonoBehaviour {
         if (hitOcean) { 
             if (other.tag == "BoatRadius")
             {
-                //Debug.Log("Beam me up, Scotty!");
-              
                 reelMeUp = true;
             }
         }
