@@ -74,6 +74,7 @@ public class RodStatus : MonoBehaviour
     void Start()
     {
         nView = GetComponent<NetworkView>();
+        NetworkManager.nView = nView;
         fishManager = GameObject.Find("Fish Manager");
         bobber = GameObject.Find("Bobber");
         rodEnd = GameObject.Find("BobLauncher");
