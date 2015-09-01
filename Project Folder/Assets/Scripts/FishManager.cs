@@ -125,7 +125,7 @@ public class FishManager : MonoBehaviour
         hookedFish.randomize();
 
         // Remove me, for debugging only
-       keepFish(hookedFish);
+       //keepFish(hookedFish);
 
         return hookedFish;
     }

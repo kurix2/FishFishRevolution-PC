@@ -55,7 +55,7 @@ public class Cast : MonoBehaviour {
        // timerObject.GetComponent<CountDownTimer>.
 
         Debug.Log("Trying to cast");
-        Debug.Log("gauge Value was " + gaugeValue);
+       // Debug.Log("gauge Value was " + gaugeValue);
         
         if (rod.GetComponent<RodStatus>().getStatus() == "precasting")
         {

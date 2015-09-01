@@ -7,7 +7,7 @@ using System.Collections;
 
 public class RodStatus : MonoBehaviour
 {
-
+    public static RodStatus rodstatus;
     public NetworkView nView;
     private GameObject fishManager;
     private string status;
@@ -20,19 +20,21 @@ public class RodStatus : MonoBehaviour
     private float pullTimeLeft;
     private float pullSplashScale;
 
-    private GameObject fish;
+    public GameObject fish;
     private Fish hookedFish;
     private int fishCount = 0;
     private int reelSpeed = 5;
     private bool reelSwitch;
     public int speed = 500;
     public float distance;
-    private bool fishAttached;
+    public bool fishAttached;
 
-    private float rodPullFactor;
-    private float swimSpeed;
+    public float rodPullFactor;
+    public float swimSpeed;
     private int randomTrigger;
     private float randomDir;
+
+    public float linePower;
 
     private Vector3 prevPos;
     private RigidbodyConstraints orginalConstraint;
@@ -42,10 +44,10 @@ public class RodStatus : MonoBehaviour
     private bool androidUIEnabled;
 
     // Bobber
-    private GameObject bobber;
+    public GameObject bobber;
     private Rigidbody rb;
     private GameObject hookHinge;
-    private GameObject rodEnd;
+    public GameObject rodEnd;
     private GameObject rodTip;
     private LineRenderer line;
     public Transform reel;
@@ -69,6 +71,10 @@ public class RodStatus : MonoBehaviour
         status = sts;
     }
 
+    void Awake()
+    {
+        rodstatus = this;
+    }
 
     // Use this for initialization
     void Start()
@@ -164,7 +170,7 @@ public class RodStatus : MonoBehaviour
                 {
                     pullTimeLeft -= Time.deltaTime;
                     pullSplashScale = pullTimeLeft / pullTimeMax;
-                    Debug.Log("timeLeft " + pullTimeLeft);
+                   // Debug.Log("timeLeft " + pullTimeLeft);
                     if (pullTimeLeft < 0)
                     {
                         Debug.Log("GG, fish escaped");
@@ -191,6 +197,10 @@ public class RodStatus : MonoBehaviour
             case "reeling in":
 
                 float step = (rodPullFactor / 30) * Time.deltaTime;
+                
+                linePower += step*10;
+                if (linePower >= 0.9f)
+                    linePower-=0.9f;
 
                 if (rodPullFactor >= 0.1f)
                     rodPullFactor -= 0.1f;
@@ -250,16 +260,12 @@ public class RodStatus : MonoBehaviour
             // Hook has reached the boat, reel now goes up towards rodEnd
             case "reeling up":
 
-                bobber.transform.GetComponent<Renderer>().enabled = false;
-                rb.velocity = new Vector3(0, 0, 0);
-                rb.constraints = orginalConstraint;
-                rb.useGravity = false;
-                rb.isKinematic = true;
-                rb.position = Vector3.MoveTowards(rb.position, rodTip.transform.position, reelSpeed * Time.deltaTime);
+                
 
                 float distance = Vector3.Distance(rb.position, rodEnd.transform.position);
                 if (distance < 0.3)
                 {
+                    bobber.transform.parent = rodTip.transform;
                     if (!androidUIEnabled)
                     {
                         nView.RPC("enableCaughtUI", RPCMode.All);
@@ -270,11 +276,21 @@ public class RodStatus : MonoBehaviour
                         status = "reset";
                 }
 
+                else
+                {
+                    bobber.transform.GetComponent<Renderer>().enabled = false;
+                    rb.velocity = new Vector3(0, 0, 0);
+                    rb.constraints = orginalConstraint;
+                    rb.useGravity = false;
+                    rb.isKinematic = true;
+                    rb.position = Vector3.MoveTowards(rb.position, rodTip.transform.position, reelSpeed * Time.deltaTime);
+                }
+
                 break;
 
             // Fish has been caught, reset all values and remove the fish
             case "reset":
-
+                
                 line.GetComponent<Renderer>().enabled = false;
                 Destroy(hookHinge);
                 Destroy(fish);
@@ -283,6 +299,12 @@ public class RodStatus : MonoBehaviour
                 fishAttached = false;
                 catchSwitch = false;
                 androidUIEnabled = false;
+                biteCoolDown = 5f;
+
+                rb.velocity = new Vector3(0, 0, 0);
+                rb.constraints = orginalConstraint;
+                bobber.transform.position = rodTip.transform.position;
+                bobber.transform.parent = rodEnd.transform;
                 status = "standby";
 
                 break;
