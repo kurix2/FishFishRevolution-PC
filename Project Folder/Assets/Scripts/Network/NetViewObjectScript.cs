@@ -68,6 +68,11 @@ public class NetViewObjectScript : MonoBehaviour
             if (boat)
                 transform.position = new Vector3(transform.position.x, boat.transform.position.y + boatOffsetY, transform.position.z);
 
+            Quaternion receivedRot = new Quaternion(0, 0, 0, 0);
+            stream.Serialize(ref receivedRot);
+            Quaternion rotationToUse = receivedRot;
+            transform.rotation = rotationToUse;
+            /* the old wonky thing
 			Vector3 receivedRot = Vector3.zero;
 			stream.Serialize (ref receivedRot);
 			acceRotationVector = receivedRot;
@@ -84,9 +89,9 @@ public class NetViewObjectScript : MonoBehaviour
 			if (angle > rotationBreak) {
 				transform.rotation = Quaternion.Lerp (transform.rotation, rotation, Time.deltaTime * rotationSpeed);
 				// Works -> transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+                */
 
-             
-			}
+        //}
 		}
     }
 

@@ -29,6 +29,9 @@ public class Gauge : MonoBehaviour {
 
     private bool fasterThanFish;
 
+    private bool showUI;
+
+    private bool snap;
     // Use this for initialization
     void Start () {
         status = RodStatus.rodstatus;
@@ -44,7 +47,9 @@ public class Gauge : MonoBehaviour {
         Vector3 compassPos = new Vector3(transform.position.x, bobber.transform.position.y, transform.position.z);
         compass.transform.position = compassPos;
 
-        if (status.getStatus() == "reeling in") { 
+        if (status.getStatus() == "reeling in") {
+
+            showUI = true;
 
             Vector3 lookPos = rodEnd.transform.position - compass.transform.position;
             lookPos.y = 0;
@@ -70,39 +75,42 @@ public class Gauge : MonoBehaviour {
                 if (barSize >= barSizeMin)
                     barSize -= 0.1f;
             }
-
+            
             fishIconX = barX - (fishIcon.width / 2) + fishIconOffset;
             fishIconY = barY - 6;
 
             
-            float dangerZoneL = barX - barSize / 2 + fishIcon.width-6;
-            float dangerZoneR = barX + barSize / 2 - fishIcon.width-6;
+            float dangerZoneL = (barX - barSize / 2) - 4;
+            float dangerZoneR = (barX + barSize / 2) - (fishIcon.width - 10);
+
             if (fishIconX > dangerZoneR || fishIconX < dangerZoneL)
             {
                 Debug.Log("Line Snap!");
-                // Change state in RodStatus
                 status.setStatus("reset");
                 barSize = defaultSize;
                 fishIconOffset = 0;
             }
-
+        
             if (status.linePower > 1.1f)
-            {
-                fasterThanFish = true;
-                fishIconOffset -= 0.05f + (status.linePower / 100);
-            }
+                {
+                    fasterThanFish = true;
+                    fishIconOffset -= 0.05f + (status.linePower / 100);
+                }
             else
-            {
-                fasterThanFish = false;
-                fishIconOffset += 0.15f;
-            }
+                {
+                    fasterThanFish = false;
+                    fishIconOffset += 0.15f;
+                }
+        } else
+        {
+            showUI = false;
         }
 
     }
 
     void OnGUI()
     {
-        if (status.fishAttached) { 
+        if (showUI) { 
             GUI.Label(new Rect(30, 30, 300, 30), "Angle to fish: " + angle);
 
             if (aligned)
@@ -116,6 +124,18 @@ public class Gauge : MonoBehaviour {
             // Debugging
             GUI.Label(new Rect(30, 90, 300, 30), "fish speed: " + status.swimSpeed);
             GUI.Label(new Rect(30, 120, 300, 30), "reel speed: " + status.linePower);
+
+        /* Debugging buttons
+            if (GUI.Button(new Rect(30, 200, 75, 35), "Bar+"))
+                barSize++;
+            if (GUI.Button(new Rect(30, 240, 75, 35), "Bar-"))
+                barSize--;
+            if (GUI.Button(new Rect(30, 280, 75, 35), "Fish+"))
+                fishIconOffset++;
+            if (GUI.Button(new Rect(30, 320, 75, 35), "Fish-"))
+                fishIconOffset--;
+             GUI.Label(new Rect(30, 360, 300, 30), "snap: " + snap);
+         */
 
 
         }
