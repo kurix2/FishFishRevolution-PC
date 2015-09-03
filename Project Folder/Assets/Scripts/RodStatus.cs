@@ -263,7 +263,7 @@ public class RodStatus : MonoBehaviour
                 
 
                 float distance = Vector3.Distance(rb.position, rodEnd.transform.position);
-                if (distance < 0.3)
+                if (distance < 0.5)
                 {
                     bobber.transform.parent = rodTip.transform;
                     if (!androidUIEnabled)
