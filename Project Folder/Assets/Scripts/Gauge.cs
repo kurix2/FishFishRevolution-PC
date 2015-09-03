@@ -111,31 +111,26 @@ public class Gauge : MonoBehaviour {
     void OnGUI()
     {
         if (showUI) { 
-            GUI.Label(new Rect(30, 30, 300, 30), "Angle to fish: " + angle);
-
-            if (aligned)
-                GUI.Label(new Rect(30, 60, 300, 30), "OK!");
-            else
-                GUI.Label(new Rect(30, 60, 300, 30), "nope!");
+           
 
             GUI.Button(new Rect(barX - (barSize / 2), barY, barSize, barHeight), "");
             GUI.Label(new Rect(fishIconX, fishIconY, fishIcon.width, fishIcon.height), fishIcon);
+            /*
+          // Debugging
+          GUI.Label(new Rect(30, 90, 300, 30), "fish speed: " + status.swimSpeed);
+          GUI.Label(new Rect(30, 120, 300, 30), "reel speed: " + status.linePower);
 
-            // Debugging
-            GUI.Label(new Rect(30, 90, 300, 30), "fish speed: " + status.swimSpeed);
-            GUI.Label(new Rect(30, 120, 300, 30), "reel speed: " + status.linePower);
-
-        /* Debugging buttons
-            if (GUI.Button(new Rect(30, 200, 75, 35), "Bar+"))
-                barSize++;
-            if (GUI.Button(new Rect(30, 240, 75, 35), "Bar-"))
-                barSize--;
-            if (GUI.Button(new Rect(30, 280, 75, 35), "Fish+"))
-                fishIconOffset++;
-            if (GUI.Button(new Rect(30, 320, 75, 35), "Fish-"))
-                fishIconOffset--;
-             GUI.Label(new Rect(30, 360, 300, 30), "snap: " + snap);
-         */
+             Debugging buttons
+          if (GUI.Button(new Rect(30, 200, 75, 35), "Bar+"))
+              barSize++;
+          if (GUI.Button(new Rect(30, 240, 75, 35), "Bar-"))
+              barSize--;
+          if (GUI.Button(new Rect(30, 280, 75, 35), "Fish+"))
+              fishIconOffset++;
+          if (GUI.Button(new Rect(30, 320, 75, 35), "Fish-"))
+              fishIconOffset--;
+           GUI.Label(new Rect(30, 360, 300, 30), "snap: " + snap);
+       */
 
 
         }

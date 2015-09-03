@@ -10,7 +10,7 @@ public class GaugeLocationScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         notPressedPosition = new Vector3(99999.0f, 99999.0f, 0.0f);
-        pressedPosition = new Vector3(-2.1f, 1, -0.7f);
+        pressedPosition = new Vector3(3f, 0.2f, 3.23f);
 	}
 	
 	// Update is called once per frame

@@ -39,7 +39,9 @@ public class CountDownTimer : MonoBehaviour {
          transform.position = new Vector3(999.0f, 999.0f, 999.0f);
          //this.Init(m_startingMinutes);
      }
- 
+
+    private bool gameover;
+
      // Update is called once per frame
      void Update()
      {
@@ -82,8 +84,22 @@ public class CountDownTimer : MonoBehaviour {
          {
              m_timerLabel.text = string.Format("{0}:{1}:0{2}", m_mins, m_seconds, (int)m_miliseconds);
          }
+
+        if (inited && m_mins == 0 && m_seconds == 0 && m_miliseconds == 0 && !gameover)
+        {
+            gameover = true;
+            RodStatus.rodstatus.setStatus("gameover");
+        }
+            
+
      }
  
+    void OnGUI()
+    {
+        GUI.skin.label.fontSize = 32;
+        if (inited)
+          GUI.Label(new Rect(Screen.width - 140, 20, 300, 50), "" + m_timerLabel.text);
+    }
      /// <summary>
      /// Public function to initialize the timer
      /// </summary>
