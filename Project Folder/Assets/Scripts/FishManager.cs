@@ -52,7 +52,7 @@ public class FishManager : MonoBehaviour
         {
             GUI.Label(new Rect(10 + (fishCountSprite.width * i), 10, fishCountSprite.width, fishCountSprite.height), fishCountSprite);
         }
-
+        if (RodStatus.rodstatus != null) {
         if (caughtFish.Count == 3 || RodStatus.rodstatus.getStatus() == "gameover")
         {
             GUI.Label(new Rect(Screen.width / 2 - splashSprite.width / 2, Screen.height / 2 - splashSprite.height / 2, splashSprite.width, splashSprite.height), splashSprite);
@@ -86,7 +86,7 @@ public class FishManager : MonoBehaviour
             }
 
         }
-
+        }
 
 
     }
