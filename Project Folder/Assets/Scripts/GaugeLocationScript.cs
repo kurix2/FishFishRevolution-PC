@@ -4,24 +4,40 @@ using System.Collections;
 public class GaugeLocationScript : MonoBehaviour {
     public Vector3 pressedPosition;
     public Vector3 notPressedPosition;
+
+
+	
     public bool castButtonPressed;
 
-    public GameObject timerGauge;
+	public GameObject gauge;
+	public GameObject gauge2;
+
+
 	// Use this for initialization
 	void Start () {
-        notPressedPosition = new Vector3(99999.0f, 99999.0f, 0.0f);
-        pressedPosition = new Vector3(3f, 0.2f, 3.23f);
+
+		castButtonPressed = false;
+
+		gauge = GameObject.Find("CastFront");
+		gauge2 = GameObject.Find ("CastBack");
+
+        notPressedPosition = new Vector3(1000.0f, 10000.0f,0f);
+		pressedPosition = new Vector3(780.0f, 33.0f,0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (castButtonPressed == false)
         {
-            timerGauge.transform.position = notPressedPosition;
+            gauge.transform.position = notPressedPosition;
+			gauge2.transform.position = notPressedPosition;
+		
+
         }
         else
         {
-            timerGauge.transform.position = pressedPosition;
+			gauge.transform.position = pressedPosition;
+			gauge2.transform.position = pressedPosition;
         }
 	}
 }
