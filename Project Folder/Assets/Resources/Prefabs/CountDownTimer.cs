@@ -22,17 +22,6 @@ public class CountDownTimer : MonoBehaviour {
 
      public Vector3 posOffset;
  
-     //-----------------------------------------------------------------------------------
-     //Note: If you had a way to take in a username or initials you could 
-     //do something along the lines of the below code instead of just using 
-     //a list
-     //
-     //private Dictionary<string, int> m_scoreDictionary = new Dictionary<string, int>();
-     //
-     //With a dictionary you could link a name to a score value, just a thought :P
-     //For now this script just uses the list set up below.
-     //-----------------------------------------------------------------------------------
-     private List<int> m_scores = new List<int>();
  
      // Use this for initialization
      void Start()

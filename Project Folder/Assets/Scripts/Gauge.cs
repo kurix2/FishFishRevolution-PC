@@ -1,7 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class Gauge : MonoBehaviour {
+
+	//Audio Sources & Clips
+	private AudioSource source;
+	public AudioClip fail;
 
     private RodStatus status;
     private GameObject bobber;
@@ -34,6 +40,7 @@ public class Gauge : MonoBehaviour {
     private bool snap;
     // Use this for initialization
     void Start () {
+		source = GetComponent<AudioSource>();
 
         barY =  15;
         barX = Screen.width / 2;
@@ -89,6 +96,7 @@ public class Gauge : MonoBehaviour {
 
             if (fishIconX > dangerZoneR || fishIconX < dangerZoneL)
             {
+				source.PlayOneShot(fail,0.5f);
                 Debug.Log("Line Snap!");
                 status.setStatus("reset");
                 barSize = defaultSize;
