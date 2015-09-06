@@ -18,6 +18,7 @@ public class Cast : MonoBehaviour {
     private Rigidbody rb;
     private RigidbodyConstraints orginalConstraint;
 
+
 	// Use this for initialization
 	void Start () {
       //  timerObject = GameObject.Find("Timer Object");
@@ -51,6 +52,11 @@ public class Cast : MonoBehaviour {
 	[RPC]
 	public void cast()
     {
+		if (castCounter == 0) {
+
+			CountDownTimer.timer.Init(3.0f);
+		} 
+
         castCounter++;
        // timerObject.GetComponent<CountDownTimer>.
 

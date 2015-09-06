@@ -13,7 +13,7 @@ public class NetworkManager : MonoBehaviour {
 
     public bool useWifi = false;
 
-    public GameObject countDownTimer;
+
 
    
     // Move me out off here
@@ -107,7 +107,7 @@ public class NetworkManager : MonoBehaviour {
     {
         Debug.Log("Player connected");
         gameStarted = true;
-        countDownTimer.GetComponent<CountDownTimer>().Init(3.0f);
+        
         theCamera.GetComponent<Animator>().enabled = true;
         //theCamera.GetComponent<cameraAnimScript>().startAnim();
 
