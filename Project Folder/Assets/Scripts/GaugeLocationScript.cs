@@ -22,7 +22,7 @@ public class GaugeLocationScript : MonoBehaviour {
 		gauge2 = GameObject.Find ("CastBack");
 
         notPressedPosition = new Vector3(1000.0f, 10000.0f,0f);
-		pressedPosition = new Vector3(780.0f, 33.0f,0f);
+		pressedPosition = new Vector3(700.0f, 33.0f,0f);
 	}
 	
 	// Update is called once per frame

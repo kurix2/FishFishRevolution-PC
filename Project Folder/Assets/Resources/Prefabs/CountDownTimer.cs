@@ -5,7 +5,8 @@
 
 public class CountDownTimer : MonoBehaviour {
 
-
+	 public Text timerText;
+	 public Image timerBackground;
      public float m_startingMinutes = 3.0f; //in seconds
      public bool m_startTimer = false;
      public Text m_timerLabel; //drag GUIText in the scene here
@@ -16,7 +17,8 @@ public class CountDownTimer : MonoBehaviour {
      private float m_totalmiliseconds;
 
      private Vector3 timerPos;
-     private bool inited;
+	 public static CountDownTimer timer;
+     public bool inited;
 
      public Vector3 posOffset;
  
@@ -35,8 +37,11 @@ public class CountDownTimer : MonoBehaviour {
      // Use this for initialization
      void Start()
      {
-         timerPos = transform.position;
-         transform.position = new Vector3(999.0f, 999.0f, 999.0f);
+		timerText.enabled = false;
+		timerBackground.enabled = false;
+		 inited = false;
+//         timerPos = transform.position;
+//         transform.position = new Vector3(999.0f, 999.0f, 999.0f);
          //this.Init(m_startingMinutes);
      }
 
@@ -45,10 +50,11 @@ public class CountDownTimer : MonoBehaviour {
      // Update is called once per frame
      void Update()
      {
-         if (inited) {
-             Vector3 pos = new Vector3(Screen.width - posOffset.x, Screen.height - posOffset.y, 0 - posOffset.z);
-             transform.position = pos;//timerPos; 
-         }
+//         if (inited) {
+//			   
+////             Vector3 pos = new Vector3(Screen.width - posOffset.x, Screen.height - posOffset.y, 0 );
+////             transform.position = pos;//timerPos; 
+//         }
          if (m_startTimer && m_totalmiliseconds >= 0)
          {
              if (m_miliseconds <= 0)
@@ -94,18 +100,20 @@ public class CountDownTimer : MonoBehaviour {
 
      }
  
-    void OnGUI()
-    {
-        GUI.skin.label.fontSize = 32;
-        if (inited)
-          GUI.Label(new Rect(Screen.width - 140, 20, 300, 50), "" + m_timerLabel.text);
-    }
+//    void OnGUI()
+//    {
+//        GUI.skin.label.fontSize = 32;
+//        if (inited)
+//          GUI.Label(new Rect(Screen.width - 140, 20, 300, 50), "" + m_timerLabel.text);
+//    }
      /// <summary>
      /// Public function to initialize the timer
      /// </summary>
      /// <param name="p_startingTime"></param>
      public void Init(float p_startingTime)
      {
+		 timerText.enabled = true;
+		 timerBackground.enabled = true;
          inited = true;
          //On the note of PlayerPrefs, you may want to read them in here on the initialize      
          m_totalmiliseconds = p_startingTime * (60/*seconds*/) * (100/*miliseconds*/);
@@ -121,6 +129,13 @@ public class CountDownTimer : MonoBehaviour {
      {
          m_startTimer = p_pause;
      }
+
+	void Awake(){
+		if (timer == null) {
+			timer = this;
+		}
+
+	}
  
 
  }
