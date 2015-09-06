@@ -41,7 +41,7 @@ public class Cast : MonoBehaviour {
     public void castGauge()
     {
         Debug.Log("Guage Initiated");
-        if (status == "standby") {
+        if (rod.GetComponent<RodStatus>().getStatus() == "standby") {
             rod.GetComponent<RodStatus>().setStatus("precasting");
           //  status = "precasting";
             barUI.SetActive(true);
