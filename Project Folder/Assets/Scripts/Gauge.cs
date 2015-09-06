@@ -9,10 +9,10 @@ public class Gauge : MonoBehaviour {
     public GameObject compass;
 
     public float barSize = 200;
-    private float barSizeMin = 100;
-    private float barSizeMax = 300;
+    private float barSizeMin = 200;
+    private float barSizeMax = 400;
     public float barX = 200;
-    public float barY = 115;
+    public float barY = 80;
     public float barHeight = 50;
     private float defaultSize;
 
@@ -34,6 +34,10 @@ public class Gauge : MonoBehaviour {
     private bool snap;
     // Use this for initialization
     void Start () {
+
+        barY =  15;
+        barX = Screen.width / 2;
+
         status = RodStatus.rodstatus;
         bobber = status.bobber;
         rodEnd = status.rodEnd;
