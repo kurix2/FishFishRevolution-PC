@@ -69,6 +69,7 @@ public class RodStatus : MonoBehaviour
     public void setStatus(string sts)
     {
         status = sts;
+        // Send new status to phone
     }
 
     void Awake()
