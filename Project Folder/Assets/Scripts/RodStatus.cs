@@ -227,17 +227,26 @@ public class RodStatus : MonoBehaviour
 
                         hookedFish = fishManager.GetComponent<FishManager>().hookFish();
 
-                        hookHinge = Instantiate(Resources.Load("Prefabs/HookHinges3"), rb.position, Quaternion.identity) as GameObject;
-                        GameObject Connecter = GameObject.Find("HookJoint");
-                        HingeJoint hj = Connecter.GetComponent<HingeJoint>();
-                        hj.connectedBody = rb;
+					   hookHinge = Instantiate(Resources.Load("Prefabs/CharacterHook"), rb.position, Quaternion.identity) as GameObject;
+                          
+
+					   //hookHinge = Instantiate(Resources.Load("Prefabs/HookHinges3"), rb.position, Quaternion.identity) as GameObject;
+                       //GameObject Connecter = GameObject.Find("HookJoint");
+                       //HingeJoint hj = Connecter.GetComponent<HingeJoint>();
+                        //hj.connectedBody = rb;
 
                         string fishPrefab = hookedFish.getPrefab();
 
-                        fish = Instantiate(Resources.Load("Prefabs/Fish/" + fishPrefab), rb.position, Quaternion.identity) as GameObject;
-                        GameObject hookJointGO = GameObject.Find("FishJoint");
-                        HingeJoint fishJoint = fish.GetComponent<HingeJoint>();
-                        fishJoint.connectedBody = hookJointGO.GetComponent<Rigidbody>();
+					fish = Instantiate(Resources.Load("Prefabs/Fish/" + fishPrefab), new Vector3(rb.position.x,rb.position.y-0.1f,rb.position.z), Quaternion.identity) as GameObject;
+					//fish = Instantiate(Resources.Load("Prefabs/Fish/" + fishPrefab), rb.position, Quaternion.identity) as GameObject;
+//                        GameObject hookJointGO = GameObject.Find("FishJoint");
+//                        HingeJoint fishJoint = fish.GetComponent<HingeJoint>();
+
+					    GameObject hookOfHook = GameObject.Find("CharacterHookHook"); 
+						hookOfHook.GetComponent<CharacterJoint>().connectedBody = fish.GetComponent<Rigidbody>();
+					    
+						hookHinge.transform.parent = rb.transform;
+						//hookHinge = fish.GetComponent<Rigidbody>();
 
                         rb.useGravity = false;
                         swimSpeed = hookedFish.getSpeed();
@@ -269,7 +278,7 @@ public class RodStatus : MonoBehaviour
                 
 
                 float distance = Vector3.Distance(rb.position, rodEnd.transform.position);
-                if (distance < 0.5)
+                if (distance < 0.01f)
                 {
                     bobber.transform.parent = rodTip.transform;
                     if (!androidUIEnabled)
