@@ -3,10 +3,14 @@ using System.Collections;
 
 // Handles the States of the rod
 
-
+[RequireComponent(typeof(AudioSource))]
 
 public class RodStatus : MonoBehaviour
 {
+	//Audio Sources & Clips
+	public AudioSource reelSound;
+	//public AudioClip reelSound;
+
     public static RodStatus rodstatus;
     public NetworkView nView;
     private GameObject fishManager;
@@ -209,6 +213,7 @@ public class RodStatus : MonoBehaviour
                 // Fish hooked
                 if (catchSwitch)
                 {
+					
                     if (randomTrigger == 1)
                     {
                         randomDir = Random.Range(-90.0f, 90.0f);
@@ -328,15 +333,21 @@ public class RodStatus : MonoBehaviour
     [RPC]
     public void reeling(float reelSpd)
     {
-        if (status == "reeling in")
-        {
-            if (reelSpd > 0)
-            {
-                reel.rotation = Quaternion.AngleAxis(reelSpd, Vector3.right);
-                rodPullFactor = reelSpd;
-                rb.constraints = RigidbodyConstraints.FreezePositionY;
-            }
-        }
+        if (status == "reeling in") {
+			if (reelSpd > 0) {
+				reelSound.loop = true;
+				reelSound.Play ();
+				
+				reel.rotation = Quaternion.AngleAxis (reelSpd, Vector3.right);
+				rodPullFactor = reelSpd;
+				rb.constraints = RigidbodyConstraints.FreezePositionY;
+			}
+
+		} else 
+		{
+			reelSound.loop = false;
+			reelSound.Stop ();
+		}
 
     }
 
