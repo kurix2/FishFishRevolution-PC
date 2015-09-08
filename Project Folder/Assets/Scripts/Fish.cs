@@ -33,6 +33,20 @@ public class Fish
         icon = ic;
     }
 
+    public void setWeight(float wgt)
+    {
+        weight = wgt;
+    }
+
+    public float getMaxW()
+    {
+        return maxWeight;
+    }
+    public float getMinW()
+    {
+        return minWeight;
+    }
+
     public string getPrefab()
     {
         return prefab;

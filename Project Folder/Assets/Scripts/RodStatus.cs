@@ -9,7 +9,9 @@ public class RodStatus : MonoBehaviour
 {
 	//Audio Sources & Clips
 	public AudioSource reelSound;
-	//public AudioClip reelSound;
+    //public AudioClip reelSound;
+
+    private bool gameOver;
 
     public static RodStatus rodstatus;
     public NetworkView nView;
@@ -325,6 +327,9 @@ public class RodStatus : MonoBehaviour
                 break;
 
             case "gameover":
+                if (!gameOver)
+                    CameraAnimationScript.CamAnimSript.NextAnimation();
+                gameOver = true;
                 // ???
                 /// Application.LoadLevel(Application.loadedLevel);
                 break;

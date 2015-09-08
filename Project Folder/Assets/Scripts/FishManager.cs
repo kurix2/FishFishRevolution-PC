@@ -42,6 +42,9 @@ public class FishManager : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
             hookFish();
+
+        if (caughtFish.Count == 3 && RodStatus.rodstatus.getStatus() != "gameover")
+            RodStatus.rodstatus.setStatus("gameover");
     }
 
     public void OnGUI()
@@ -50,10 +53,11 @@ public class FishManager : MonoBehaviour
         GUI.skin = guiStyle;
         for (int i = 0; i < caughtFish.Count; i++)
         {
-            GUI.Label(new Rect(10 + (fishCountSprite.width * i), 10, fishCountSprite.width, fishCountSprite.height), fishCountSprite);
+            //GUI.Label(new Rect(10 + (fishCountSprite.width * i), 10, fishCountSprite.width, fishCountSprite.height), fishCountSprite);
         }
         if (RodStatus.rodstatus != null) {
-        if (caughtFish.Count == 3 || RodStatus.rodstatus.getStatus() == "gameover")
+        //if (caughtFish.Count == 3 || RodStatus.rodstatus.getStatus() == "gameover")
+        if (CameraAnimationScript.CamAnimSript.scene == "GameOver")
         {
             GUI.Label(new Rect(Screen.width / 2 - splashSprite.width / 2, Screen.height / 2 - splashSprite.height / 2, splashSprite.width, splashSprite.height), splashSprite);
 
@@ -119,13 +123,26 @@ public class FishManager : MonoBehaviour
 
     public Fish hookFish()
     {
+
+        Random.seed = System.Environment.TickCount;
+
         int randomFish = Random.Range(0, fish.Count);
 
         hookedFish = fish[randomFish];
-        hookedFish.randomize();
+        hookedFish.randomize(); // not needed anymore?
+
+        Debug.Log("Min: " + hookedFish.getMinW());
+        Debug.Log("Max: " + hookedFish.getMaxW());
+
+        float randomWeight = Mathf.Round(Random.Range(hookedFish.getMinW(), hookedFish.getMaxW()) * 100f) / 100f;
+        hookedFish.setWeight(randomWeight);
+
+       // Debug.Log("Random Weight: " + randomWeight);
+       // Debug.Log("Fish Weight: " + hookedFish.getWeight());
+
 
         // Remove me, for debugging only
-       //keepFish(hookedFish);
+        keepFish(hookedFish);
 
         return hookedFish;
     }
@@ -135,12 +152,13 @@ public class FishManager : MonoBehaviour
     public void keepFish(Fish caught)
     {
 
-      
+
 
         caughtFish.Add(caught);
-
+        TackleBoxUI.tackleBox.addFish();
         Debug.Log("You caught a: " + caughtFish[caughtFish.Count - 1].getName() + " Weight: " + caughtFish[caughtFish.Count - 1].getWeight());
        
+
        // return fishString;
     }
 

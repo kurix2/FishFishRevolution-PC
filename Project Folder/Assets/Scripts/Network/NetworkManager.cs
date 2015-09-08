@@ -107,8 +107,8 @@ public class NetworkManager : MonoBehaviour {
     {
         Debug.Log("Player connected");
         gameStarted = true;
-        
-        theCamera.GetComponent<Animator>().enabled = true;
+        CameraAnimationScript.CamAnimSript.NextAnimation();
+        //theCamera.GetComponent<Animator>().enabled = true;
         //theCamera.GetComponent<cameraAnimScript>().startAnim();
 
     }

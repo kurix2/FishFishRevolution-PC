@@ -18,7 +18,7 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(RodStatus.rodstatus);
+       // Debug.Log(RodStatus.rodstatus);
         if(rod != null){
             }
                  
