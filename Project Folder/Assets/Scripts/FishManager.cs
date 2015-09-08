@@ -142,7 +142,7 @@ public class FishManager : MonoBehaviour
 
 
         // Remove me, for debugging only
-        keepFish(hookedFish);
+        //keepFish(hookedFish);
 
         return hookedFish;
     }
