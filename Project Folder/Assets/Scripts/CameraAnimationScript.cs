@@ -20,7 +20,9 @@ public class CameraAnimationScript : MonoBehaviour {
 
     public void SetScene(string s)
     {
-        scene = s;   
+        scene = s;
+        if (scene == "ScoreScreen")
+            ScoreScreen.SScreen.Show();
     }
 
 
@@ -32,10 +34,20 @@ public class CameraAnimationScript : MonoBehaviour {
 
     void OnGUI()
     {   
-        if (scene == "GameOver")
-            if (GUI.Button(new Rect(Screen.width / 2 + 300, Screen.height / 2, 200, 60), "Restart"))
+        if (scene == "ScoreScreen")
+            if (GUI.Button(new Rect(Screen.width / 2 + 200, Screen.height / 2, 200, 60), "High Score"))
             {
-                Application.LoadLevel(Application.loadedLevel);
+                ScoreScreen.SScreen.Hide();
+                HighScoreScene.HSScreen.Show();
+                NextAnimation();
             }
+
+        if (scene == "HighScoreScreen")
+            if (GUI.Button(new Rect(Screen.width / 2 + 200, Screen.height / 2 + 70, 200, 60), "Restart"))
+            {
+                HighScoreScene.HSScreen.Hide();
+                SceneFade.SceneFader.EndScene();
+            }
+
     }
 }

@@ -4,12 +4,13 @@ using System.Collections;
 
 public class NetworkManager : MonoBehaviour {
 
+    public static NetworkManager nManager;
     public static NetworkView nView;
 
 	public Button startServerButton;
     public InputField portInput;
 
-    private bool gameStarted;
+    public bool gameStarted;
 
     public bool useWifi = false;
 
@@ -30,6 +31,7 @@ public class NetworkManager : MonoBehaviour {
 
     void Awake()
     {
+        nManager = this;
         if (nView == null)
         {
             //nView = GetComponent<NetworkView>();
@@ -62,7 +64,7 @@ public class NetworkManager : MonoBehaviour {
 
         if (!gameStarted)
         {
-            GUI.Label(new Rect(Screen.width / 2 - TitleScreen.width / 2, Screen.height / 2 - TitleScreen.height / 2, TitleScreen.width, TitleScreen.height), TitleScreen);
+            //GUI.Label(new Rect(Screen.width / 2 - TitleScreen.width / 2, Screen.height / 2 - TitleScreen.height / 2, TitleScreen.width, TitleScreen.height), TitleScreen);
             
         }
         else

@@ -59,7 +59,7 @@ public class FishManager : MonoBehaviour
         //if (caughtFish.Count == 3 || RodStatus.rodstatus.getStatus() == "gameover")
         if (CameraAnimationScript.CamAnimSript.scene == "GameOver")
         {
-            GUI.Label(new Rect(Screen.width / 2 - splashSprite.width / 2, Screen.height / 2 - splashSprite.height / 2, splashSprite.width, splashSprite.height), splashSprite);
+          /*  GUI.Label(new Rect(Screen.width / 2 - splashSprite.width / 2, Screen.height / 2 - splashSprite.height / 2, splashSprite.width, splashSprite.height), splashSprite);
 
             for (int i = 0; i < caughtFish.Count; i++)
             {
@@ -87,7 +87,7 @@ public class FishManager : MonoBehaviour
                 GUI.Label(new Rect(Screen.width / 2 - fishOffsetX + fishCountSprite.width + 10, Screen.height / 2 - fishOffsetY + ((fishCountSprite.height + 25) * i) + 0, 400, 60), caughtFish[i].getName());
                 GUI.Label(new Rect(Screen.width / 2 - fishOffsetX + fishCountSprite.width + 10, Screen.height / 2 - fishOffsetY + ((fishCountSprite.height + 25) * i) + 35, 400, 60), caughtFish[i].getWeight() + "kg");
 
-            }
+            }*/
 
         }
         }
@@ -142,7 +142,7 @@ public class FishManager : MonoBehaviour
 
 
         // Remove me, for debugging only
-        //keepFish(hookedFish);
+        keepFish(hookedFish);
 
         return hookedFish;
     }
