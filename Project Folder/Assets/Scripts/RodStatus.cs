@@ -8,8 +8,15 @@ using System.Collections;
 public class RodStatus : MonoBehaviour
 {
 	//Audio Sources & Clips
-	public AudioSource reelSound;
-    //public AudioClip reelSound;
+    public AudioSource release;
+	public AudioSource keep;
+    public AudioSource reelSoundSource;
+	public AudioClip keepSE;
+	public AudioClip releaseSE;
+
+	public bool reelSoundSwitchOn;
+	public bool reelSoundSwitchOff;
+
 
     private bool gameOver;
 
@@ -86,6 +93,8 @@ public class RodStatus : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		reelSoundSwitchOff = true;
+		reelSoundSwitchOn = false;
         nView = GetComponent<NetworkView>();
         NetworkManager.nView = nView;
         fishManager = GameObject.Find("Fish Manager");
@@ -202,9 +211,18 @@ public class RodStatus : MonoBehaviour
 
             // Hook has landed on ocean floor, player can now reel in
             case "reeling in":
-
                 float step = (rodPullFactor / 30) * Time.deltaTime;
-                
+                //Put Rod Sound Switch HERE If this rodpullFactor isnt zero
+			if(rodPullFactor > 0 && !reelSoundSwitchOn){
+				reelSoundSwitchOn = true;
+				reelSoundSwitchOff = false;
+				reelSoundSource.Play ();
+			}
+			else if(rodPullFactor <= 0 && !reelSoundSwitchOff){
+				reelSoundSwitchOff = true;
+				reelSoundSwitchOn = false;
+				reelSoundSource.Stop ();
+			}
                 linePower += step*10;
                 if (linePower >= 0.9f)
                     linePower-=0.9f;
@@ -349,21 +367,14 @@ public class RodStatus : MonoBehaviour
     {
         if (status == "reeling in") {
 			if (reelSpd > 0) {
-				reelSound.loop = true;
-				reelSound.Play ();
-				
 				reel.rotation = Quaternion.AngleAxis (reelSpd, Vector3.right);
 				rodPullFactor = reelSpd;
 				rb.constraints = RigidbodyConstraints.FreezePositionY;
 			}
-
-		} else 
-		{
-			reelSound.loop = false;
-			reelSound.Stop ();
-		}
-
+		} 
     }
+
+
 
     [RPC]
     public void keepFish()
@@ -372,6 +383,7 @@ public class RodStatus : MonoBehaviour
         Debug.Log("Adding fish to List!");
         fishManager.GetComponent<FishManager>().keepFish(hookedFish);
         fishCount++;
+		keepSEFunc ();
         if (fishCount == 3)
         {
             nView.RPC("enableRestartButton", RPCMode.All);
@@ -385,7 +397,9 @@ public class RodStatus : MonoBehaviour
     [RPC]
     public void releaseFish()
     {
+
         Debug.Log("Releasing fish");
+		releaseSEFunc ();
         status = "reset";
     }
 
@@ -414,12 +428,18 @@ public class RodStatus : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "Ocean")
-        {
-            Debug.Log("hit ocean");
-            GameObject.Find("Bobber");
-            rb.velocity = new Vector3(0, 0, 0);
-        }
-    }
+		if (col.gameObject.name == "Ocean") {
+			Debug.Log ("hit ocean");
+			GameObject.Find ("Bobber");
+			rb.velocity = new Vector3 (0, 0, 0);
+		}
+	}
 
+	public void keepSEFunc(){
+		keep.PlayOneShot (keepSE, 1);
+	}
+
+	public void releaseSEFunc(){
+		release.PlayOneShot (releaseSE, 1);
+	}
 }

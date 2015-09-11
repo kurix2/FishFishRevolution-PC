@@ -16,22 +16,32 @@ public class CountDownTimer : MonoBehaviour {
      private float m_mins;
      private float m_totalmiliseconds;
 
-     private Vector3 timerPos;
 	 public static CountDownTimer timer;
      public bool inited;
 
-     public Vector3 posOffset;
- 
+	private Vector3 startPos;
+	private Vector3 offscreenPos;
+	
+	private bool showingUI;
+
+    public Vector3 posOffset;
+	public GameObject container;
  
      // Use this for initialization
      void Start()
      {
-		timerText.enabled = false;
-		timerBackground.enabled = false;
+		timerText.enabled = true;
+		timerBackground.enabled = true;
 		 inited = false;
 //         timerPos = transform.position;
 //         transform.position = new Vector3(999.0f, 999.0f, 999.0f);
          //this.Init(m_startingMinutes);
+
+		startPos = container.transform.position;
+		offscreenPos = new Vector3(container.transform.position.x + 250, container.transform.position.y, container.transform.position.z);
+		container.transform.position = offscreenPos;
+
+
      }
 
     private bool gameover;
@@ -39,11 +49,9 @@ public class CountDownTimer : MonoBehaviour {
      // Update is called once per frame
      void Update()
      {
-//         if (inited) {
-//			   
-////             Vector3 pos = new Vector3(Screen.width - posOffset.x, Screen.height - posOffset.y, 0 );
-////             transform.position = pos;//timerPos; 
-//         }
+         if (!inited) {
+			m_mins = 3.0f;
+         }
          if (m_startTimer && m_totalmiliseconds >= 0)
          {
              if (m_miliseconds <= 0)
@@ -86,6 +94,11 @@ public class CountDownTimer : MonoBehaviour {
             RodStatus.rodstatus.setStatus("gameover");
         }
             
+//
+		if (CameraAnimationScript.CamAnimSript.scene == "Game" && !showingUI)
+			Show();
+		else if (CameraAnimationScript.CamAnimSript.scene != "Game" && showingUI)
+			Hide();
 
      }
  
@@ -101,8 +114,6 @@ public class CountDownTimer : MonoBehaviour {
      /// <param name="p_startingTime"></param>
      public void Init(float p_startingTime)
      {
-		 timerText.enabled = true;
-		 timerBackground.enabled = true;
          inited = true;
          //On the note of PlayerPrefs, you may want to read them in here on the initialize      
          m_totalmiliseconds = p_startingTime * (60/*seconds*/) * (100/*miliseconds*/);
@@ -124,6 +135,19 @@ public class CountDownTimer : MonoBehaviour {
 			timer = this;
 		}
 
+	}
+
+	public void Show()
+	{
+		showingUI = true;
+		iTween.MoveTo(container, iTween.Hash("position", startPos, "time", 0.5f, "easeType", iTween.EaseType.easeOutSine));
+	}
+	
+	public void Hide()
+	{
+		showingUI = false;
+		iTween.MoveTo(container, iTween.Hash("position", offscreenPos, "time", 0.5f, "easeType", iTween.EaseType.easeInSine));
+		PauseTimer(false);
 	}
  
 
