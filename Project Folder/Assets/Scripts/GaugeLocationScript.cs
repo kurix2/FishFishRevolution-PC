@@ -24,9 +24,9 @@ public class GaugeLocationScript : MonoBehaviour {
 		gauge = GameObject.Find("CastFront");
 		gauge2 = GameObject.Find ("CastBack");
 
-		notPressedPosition = new Vector3((Screen.width/10)*12, (Screen.height/5)*2.0f,0f);
-		pressedPosition = new Vector3((Screen.width/10) * 9.5f, (Screen.height/5)*2.0f,0f);
-		pressedPosition2 = new Vector3((Screen.width/10) * 9.5f, (Screen.height/5)*2.0f - 5,0f);
+		notPressedPosition = new Vector3((Screen.width/10)*12, (Screen.height/5)*1.7f,0f);
+		pressedPosition = new Vector3((Screen.width/10) * 9.7f, (Screen.height/5)*1.7f,0f);
+		pressedPosition2 = new Vector3((Screen.width/10) * 9.7f, (Screen.height/5)*1.7f - 5,0f);
 
 	}
 	
