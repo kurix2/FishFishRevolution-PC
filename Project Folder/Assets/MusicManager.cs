@@ -21,33 +21,31 @@ public class MusicManager : MonoBehaviour
        // Debug.Log(RodStatus.rodstatus);
         if(rod != null){
             }
-                 
-            if(status.getStatus() == "reeling in"){
-                if (audioClip1.isPlaying || audioClip3.isPlaying)
-                {
-                    audioClip1.Stop();
-                    audioClip3.Stop();
-                    audioClip2.Play();
-                }
+             
+        if(status.getStatus() == "reeling in"){
+            if (audioClip1.isPlaying || audioClip3.isPlaying){
+                audioClip1.Stop();
+                audioClip3.Stop();
+                audioClip2.Play();
             }
+          }
 
-             else if(status.getStatus() == "reeling up"){
-                 if (audioClip1.isPlaying || audioClip2.isPlaying)
-                 {
-                     audioClip1.Stop();
-                     audioClip2.Stop();
-                     audioClip3.Play();
-                 }
-            }
-
-            else{
-                 if (audioClip2.isPlaying || audioClip3.isPlaying)
-                {
-                    audioClip2.Stop();
-                    audioClip3.Stop();
-                    audioClip1.Play();
-                }
+         else if(status.getStatus() == "reeling up"){
+             if (audioClip1.isPlaying || audioClip2.isPlaying){
+                 audioClip1.Stop();
+                 audioClip2.Stop();
+                 audioClip3.Play();
              }
+        }
+
+        else{
+             if (audioClip2.isPlaying || audioClip3.isPlaying)
+            {
+                audioClip2.Stop();
+                audioClip3.Stop();
+                audioClip1.Play();
+            }
+         }
         }
     }
 
