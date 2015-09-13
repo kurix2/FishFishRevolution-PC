@@ -13,7 +13,8 @@ public class ScoreScreenFishData : MonoBehaviour {
     public Text fishWeightTxt;
     public Image gradeIcon;
 	public float gradeScore;
-	public int score;
+	private float score;
+	public float p_score;
 	public float rarity;
 	public float maxWeight;
 	public float weight;
@@ -42,7 +43,8 @@ public class ScoreScreenFishData : MonoBehaviour {
 
     public void Setup()
     {
-
+		Debug.Log ("Fish number is " + fishNumber);
+		Debug.Log ("fManager.caughtFish.count" + fManager.caughtFish.Count);
 			fManager = FishManager.FishM;
 		if (fManager.caughtFish.Count >= fishNumber) {
 			Fish fish = fManager.caughtFish [fishNumber];
@@ -65,10 +67,17 @@ public class ScoreScreenFishData : MonoBehaviour {
 
 			maxWeight = fish.getMaxW ();
 			weight = fish.getWeight ();
+			rarity = fish.getRarity();
+
+			score = rarity+ (rarity * (gradeScore));
+
 
 			//Score for this fish
 			gradeScore = weight / maxWeight;
-			Debug.Log ("Fish Score is" + gradeScore);
+			Debug.Log ("Fish Grade is" + gradeScore);
+
+			//calculating score
+			score = rarity + (rarity * (gradeScore));
 
 			if (gradeScore <= 0.30f) {
 				Debug.Log ("GRADE C");		
@@ -79,7 +88,10 @@ public class ScoreScreenFishData : MonoBehaviour {
 					gradeIcon.sprite = Sprite.Create (tex2, new Rect (0, 0, tex2.width, tex2.height), new Vector2 (0.5f, 0.5f));
 				else
 					Debug.Log ("Error loading fish icon: C grade");
-			} else if (gradeScore > 0.30f && gradeScore <= 0.90f) {
+
+			} 
+
+			else if (gradeScore > 0.30f && gradeScore <= 0.90f) {
 				Debug.Log ("GRADE B");
 				string gIcon = "Prefabs/Fish/GradeIcons/GradeB";
 				Texture2D tex2 = Resources.Load<Texture2D> (gIcon);
@@ -89,7 +101,9 @@ public class ScoreScreenFishData : MonoBehaviour {
 				else
 					Debug.Log ("Error loading fish icon: Grade B");
 
-			} else if (gradeScore > 0.90f) {
+			} 
+
+			else if (gradeScore > 0.90f) {
 				Debug.Log ("GRADE C");
 				string gIcon = "Prefabs/Fish/GradeIcons/GradeA";
 				Texture2D tex2 = Resources.Load<Texture2D> (gIcon);
@@ -103,6 +117,9 @@ public class ScoreScreenFishData : MonoBehaviour {
 		}
 	}
 
+	public float GetScore(){
+		return score;
+	}
 
     void Update()
     {
