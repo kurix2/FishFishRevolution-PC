@@ -15,8 +15,8 @@ public class Fish
     private float speed;
     private float endurance;
     private string icon;
-
     private float weight;
+	private float distance;
 
 
     public Fish(int i, string n, string pf, int r, float minW, float maxW, int moveP, float spd, float end, string ic)
@@ -91,5 +91,15 @@ public class Fish
     {
         return icon;
     }
+
+	public void setDistance (float dis)
+	{
+		distance = dis;
+	}
+	
+	public float getDistance()
+	{
+		return distance;
+	}
 
 }

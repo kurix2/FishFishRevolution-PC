@@ -56,6 +56,10 @@ public class RodStatus : MonoBehaviour
     private bool showBiteSplash;
     private bool androidUIEnabled;
 
+	//Boat
+	private Vector3 boatPos;
+	private float boatDistance;
+
     // Bobber
     public GameObject bobber;
     private Rigidbody rb;
@@ -93,6 +97,7 @@ public class RodStatus : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		boatPos = GameObject.Find ("Fishing Boat").transform.position;
 		reelSoundSwitchOff = true;
 		reelSoundSwitchOn = false;
         nView = GetComponent<NetworkView>();
@@ -147,6 +152,7 @@ public class RodStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		boatDistance = Vector3.Distance(boatPos, bobber.transform.position);
         // Status switch for handeling fishing states
         switch (status)
         {
@@ -246,7 +252,8 @@ public class RodStatus : MonoBehaviour
                         fishAttached = true;
 
                         hookedFish = fishManager.GetComponent<FishManager>().hookFish();
-
+						hookedFish.setDistance(boatDistance);
+						
 					   hookHinge = Instantiate(Resources.Load("Prefabs/CharacterHook"), rb.position, Quaternion.identity) as GameObject;
                           
 
