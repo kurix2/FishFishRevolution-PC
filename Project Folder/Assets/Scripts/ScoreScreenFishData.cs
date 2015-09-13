@@ -42,68 +42,64 @@ public class ScoreScreenFishData : MonoBehaviour {
 
     public void Setup()
     {
-		fManager = FishManager.FishM;
-        
-		Fish fish = fManager.caughtFish [fishNumber];
 
-		string fishIconPath = "Prefabs/Fish/Icons/" + fish.getIcon ();
-		string stringToLoad = fishIconPath.Substring (0, fishIconPath.Length - 1);
+			fManager = FishManager.FishM;
+		if (fManager.caughtFish.Count >= fishNumber) {
+			Fish fish = fManager.caughtFish [fishNumber];
 
-
-		Texture2D tex = Resources.Load<Texture2D> (stringToLoad);
+			string fishIconPath = "Prefabs/Fish/Icons/" + fish.getIcon ();
+			string stringToLoad = fishIconPath.Substring (0, fishIconPath.Length - 1);
 
 
+			Texture2D tex = Resources.Load<Texture2D> (stringToLoad);
 
-		if (tex != null)
-			fishIcon.sprite = Sprite.Create (tex, new Rect (0, 0, tex.width, tex.height), new Vector2 (0.5f, 0.5f));
-		else
-			Debug.Log ("Error loading fish icon: " + fish.getIcon ());
 
-		fishNameTxt.text = fish.getName ();
-		fishWeightTxt.text = fish.getWeight () + " ";
 
-		maxWeight = fish.getMaxW ();
-		weight = fish.getWeight ();
-
-		//Score for this fish
-		gradeScore = weight / maxWeight;
-		Debug.Log ("Fish Score is" + gradeScore);
-
-		if (gradeScore <= 0.30f) 
-		{
-			Debug.Log ("GRADE C");		
-			string gIcon = "Prefabs/Fish/GradeIcons/GradeC";
-			Texture2D tex2 = Resources.Load<Texture2D> (gIcon);
-
-			if (tex2 != null)
-				gradeIcon.sprite = Sprite.Create (tex2, new Rect (0, 0, tex2.width, tex2.height), new Vector2 (0.5f, 0.5f));
+			if (tex != null)
+				fishIcon.sprite = Sprite.Create (tex, new Rect (0, 0, tex.width, tex.height), new Vector2 (0.5f, 0.5f));
 			else
-				Debug.Log ("Error loading fish icon: C grade");
-			} 
+				Debug.Log ("Error loading fish icon: " + fish.getIcon ());
 
-		else if (gradeScore > 0.30f && gradeScore <= 0.90f) 
-		{
-			Debug.Log ("GRADE B");
-			string gIcon = "Prefabs/Fish/GradeIcons/GradeB";
-			Texture2D tex2 = Resources.Load<Texture2D> (gIcon);
+			fishNameTxt.text = fish.getName ();
+			fishWeightTxt.text = fish.getWeight () + " ";
+
+			maxWeight = fish.getMaxW ();
+			weight = fish.getWeight ();
+
+			//Score for this fish
+			gradeScore = weight / maxWeight;
+			Debug.Log ("Fish Score is" + gradeScore);
+
+			if (gradeScore <= 0.30f) {
+				Debug.Log ("GRADE C");		
+				string gIcon = "Prefabs/Fish/GradeIcons/GradeC";
+				Texture2D tex2 = Resources.Load<Texture2D> (gIcon);
+
+				if (tex2 != null)
+					gradeIcon.sprite = Sprite.Create (tex2, new Rect (0, 0, tex2.width, tex2.height), new Vector2 (0.5f, 0.5f));
+				else
+					Debug.Log ("Error loading fish icon: C grade");
+			} else if (gradeScore > 0.30f && gradeScore <= 0.90f) {
+				Debug.Log ("GRADE B");
+				string gIcon = "Prefabs/Fish/GradeIcons/GradeB";
+				Texture2D tex2 = Resources.Load<Texture2D> (gIcon);
 			
-			if (tex2 != null)
-				gradeIcon.sprite = Sprite.Create (tex2, new Rect (0, 0, tex2.width, tex2.height), new Vector2 (0.5f, 0.5f));
-			else
-				Debug.Log ("Error loading fish icon: Grade B") ;
+				if (tex2 != null)
+					gradeIcon.sprite = Sprite.Create (tex2, new Rect (0, 0, tex2.width, tex2.height), new Vector2 (0.5f, 0.5f));
+				else
+					Debug.Log ("Error loading fish icon: Grade B");
 
-		} 
-		else if (gradeScore > 0.90f) 
-		{
-			Debug.Log ("GRADE C");
-			string gIcon = "Prefabs/Fish/GradeIcons/GradeA";
-			Texture2D tex2 = Resources.Load<Texture2D> (gIcon);
+			} else if (gradeScore > 0.90f) {
+				Debug.Log ("GRADE C");
+				string gIcon = "Prefabs/Fish/GradeIcons/GradeA";
+				Texture2D tex2 = Resources.Load<Texture2D> (gIcon);
 
 
-			if (tex2 != null)
-				gradeIcon.sprite = Sprite.Create (tex2, new Rect (0, 0, tex2.width, tex2.height), new Vector2 (0.5f, 0.5f));
-			else
-				Debug.Log ("Error loading fish icon: Grade A") ;
+				if (tex2 != null)
+					gradeIcon.sprite = Sprite.Create (tex2, new Rect (0, 0, tex2.width, tex2.height), new Vector2 (0.5f, 0.5f));
+				else
+					Debug.Log ("Error loading fish icon: Grade A");
+			}
 		}
 	}
 

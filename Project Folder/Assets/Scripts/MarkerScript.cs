@@ -10,7 +10,7 @@ public class MarkerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GameObject origin = GameObject.Find("Fishing Boat");
+//        GameObject origin = GameObject.Find("Fishing Boat");
        // GameObject bobber = GameObject.Find("Bobber");
  
 	}

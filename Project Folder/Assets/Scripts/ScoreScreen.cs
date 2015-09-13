@@ -20,7 +20,7 @@ public class ScoreScreen : MonoBehaviour {
 	void Start () {
 
         startPos = transform.position;
-        outPos = new Vector3(startPos.x, startPos.y - 500, startPos.z);
+        outPos = new Vector3(startPos.x, startPos.y - 1200, startPos.z);
         transform.position = outPos;
 
        
