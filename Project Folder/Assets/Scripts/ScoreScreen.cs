@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using System;    
+using System;
+
 
 
 public class ScoreScreen : MonoBehaviour {
@@ -11,8 +12,15 @@ public class ScoreScreen : MonoBehaviour {
     private Vector3 startPos;
     private Vector3 outPos;
 	public float totalScore;
+
 	public Text totalScoreText;
-	public int totalScoreInt;
+	public float totalScoreInt;
+
+	//for high score
+	public float highScore;
+	public float[] highScores = new float[5];
+	public string highScoreKey;
+	public Text highScoreText;
 
 
 
@@ -27,10 +35,15 @@ public class ScoreScreen : MonoBehaviour {
 
 
 	void Start () {
+
+
+		//Get the highScore from player prefs if it is there, 0 otherwise. might be highscore
+		highScoreKey = "HighScore";
+		highScore = PlayerPrefs.GetFloat(highScoreKey,0);    
+
         startPos = transform.position;
         outPos = new Vector3(startPos.x, startPos.y - 1200, startPos.z);
         transform.position = outPos;
-		totalScore = 0;
        
 
         for (int i = 0; i < 
@@ -57,11 +70,44 @@ public class ScoreScreen : MonoBehaviour {
 
         }
 
+
+
 		//Prints the score to the screen
-		totalScoreText.text = "Total Score: " + totalScore.ToString("0");
+		totalScoreText.text = "Total Score: " + totalScore.ToString("00000");
+	
+	
+
+		for (int i = 0; i<highScores.Length; i++){
+			
+			//Get the highScore from 1 - 5
+			highScoreKey = "HighScore"+(i+1).ToString();
+			highScore = PlayerPrefs.GetFloat(highScoreKey,0);
+			
+			//if score is greater, store previous highScore
+			//Set new highScore
+			//set score to previous highScore, and try again
+			//Once score is greater, it will always be for the
+			//remaining list, so the top 5 will always be 
+			//updated
+			
+			if(totalScore>highScore){
+				float temp = highScore;
+				PlayerPrefs.SetFloat(highScoreKey,totalScore);
+					totalScore = temp;
+			}
+		}
+
+		for (int i = 0; i<highScores.Length; i++){
+			highScoreKey = "HighScore"+(i+1).ToString();
+			highScores[i] = PlayerPrefs.GetFloat(highScoreKey,0);
+			
+			Debug.Log ("High Score " + (i+1) + " is " + highScores[i]);
+			highScoreText.text += "Rank " +(i+1) + ": " + highScores[i].ToString("0000") + "\n\n";
+		}
 
 
-		int totalScoreInt = (int) Math.Round (totalScore);
+
+
 	
 			
 	    iTween.MoveTo(this.gameObject, iTween.Hash("position", startPos, "time", 0.5f, "easeType", iTween.EaseType.easeOutSine));

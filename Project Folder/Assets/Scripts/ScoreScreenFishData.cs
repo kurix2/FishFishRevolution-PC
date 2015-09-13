@@ -69,15 +69,15 @@ public class ScoreScreenFishData : MonoBehaviour {
 			weight = fish.getWeight ();
 			rarity = fish.getRarity();
 
-			score = rarity+ (rarity * (gradeScore));
+
 
 
 			//Score for this fish
 			gradeScore = weight / maxWeight;
 			Debug.Log ("Fish Grade is" + gradeScore);
 
-			//calculating score
-			score = rarity + (rarity * (gradeScore));
+			score = rarity+ (rarity * (gradeScore));
+
 
 			if (gradeScore <= 0.30f) {
 				Debug.Log ("GRADE C");		
