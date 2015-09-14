@@ -38,7 +38,7 @@ public class CountDownTimer : MonoBehaviour {
          //this.Init(m_startingMinutes);
 
 		startPos = container.transform.position;
-		offscreenPos = new Vector3(container.transform.position.x + 250, container.transform.position.y, container.transform.position.z);
+		offscreenPos = new Vector3(container.transform.position.x + 500, container.transform.position.y, container.transform.position.z);
 		container.transform.position = offscreenPos;
 
 

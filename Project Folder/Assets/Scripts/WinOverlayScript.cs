@@ -26,7 +26,7 @@ public class WinOverlayScript : MonoBehaviour {
 
 
 		startPos = container.transform.position;
-		onScreenPos = new Vector3(container.transform.position.x, container.transform.position.y + 175, container.transform.position.z);
+		onScreenPos = new Vector3(container.transform.position.x, (Screen.height/3)*1.5f, container.transform.position.z);
 
 
 	}

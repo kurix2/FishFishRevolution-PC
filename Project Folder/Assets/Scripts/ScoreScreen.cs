@@ -42,7 +42,7 @@ public class ScoreScreen : MonoBehaviour {
 		highScore = PlayerPrefs.GetFloat(highScoreKey,0);    
 
         startPos = transform.position;
-        outPos = new Vector3(startPos.x, startPos.y - 1200, startPos.z);
+        outPos = new Vector3(startPos.x, startPos.y - 2000, startPos.z);
         transform.position = outPos;
        
 
@@ -103,20 +103,15 @@ public class ScoreScreen : MonoBehaviour {
 			
 			Debug.Log ("High Score " + (i+1) + " is " + highScores[i]);
 			highScoreText.text += "Rank " +(i+1) + ": " + highScores[i].ToString("0000") + "\n\n";
+
 		}
 
-
-
-
-	
-			
 	    iTween.MoveTo(this.gameObject, iTween.Hash("position", startPos, "time", 0.5f, "easeType", iTween.EaseType.easeOutSine));
 
     }
 
-    public void Hide()
-    {
-        outPos = new Vector3(startPos.x, startPos.y + 500, startPos.z);
+    public void Hide(){
+        outPos = new Vector3(startPos.x, startPos.y + 2000, startPos.z);
         iTween.MoveTo(this.gameObject, iTween.Hash("position", outPos, "time", 0.5f, "easeType", iTween.EaseType.easeOutSine));
     }
 

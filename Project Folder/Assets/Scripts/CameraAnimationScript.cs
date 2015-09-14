@@ -14,31 +14,35 @@ public class CameraAnimationScript : MonoBehaviour {
             CamAnimSript = this;
     }
 
+	private bool skipFirst;
     public void NextAnimation()
     {
-        GetComponent<Animator>().speed = 1;
+		GetComponent<Animator> ().speed = 1;
+		if (!skipFirst) {
+			if (nView == null) {
+				nView = GameObject.Find ("NetworkView_TestObject(Clone)").GetComponent<NetworkView> ();
+			}
+			if (nView)
+				nView.RPC ("inTransition", RPCMode.All);
+		}
+		skipFirst = true;
+	}
 
-        if (nView == null)
-        {
-            nView = GameObject.Find("NetworkView_TestObject(Clone)").GetComponent<NetworkView>();
-        }
-        nView.RPC("inTransition", RPCMode.All);
-    }
-
-
+	private int check = 0;
     public void SetScene(string s)
     {
-        scene = s;
-        if (scene == "ScoreScreen")
-            ScoreScreen.SScreen.Show();
-
-        if (nView == null)
-        {
-            nView = GameObject.Find("NetworkView_TestObject(Clone)").GetComponent<NetworkView>();
-        }
-        if (scene != "TransitGameOver")
-            nView.RPC("transitionOver", RPCMode.All);
-    }
+		scene = s;
+		if (scene == "ScoreScreen")
+			ScoreScreen.SScreen.Show ();
+		if (check > 0) {
+			if (nView == null) {
+				nView = GameObject.Find ("NetworkView_TestObject(Clone)").GetComponent<NetworkView> ();
+			}
+			if (scene != "TransitGameOver")
+				nView.RPC ("transitionOver", RPCMode.All);
+		}
+		check++;
+	}
 
 
     public void PauseAnim()

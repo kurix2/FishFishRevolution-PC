@@ -17,7 +17,7 @@ public class HighScoreScene : MonoBehaviour {
 	{
 		
 		startPos = transform.position;
-		outPos = new Vector3(startPos.x, startPos.y - 500, startPos.z);
+		outPos = new Vector3(startPos.x, startPos.y - 1500, startPos.z);
 		transform.position = outPos;
 		
 		for (int i = 0; i <
@@ -43,7 +43,7 @@ public class HighScoreScene : MonoBehaviour {
 	
 	public void Hide()
 	{
-		outPos = new Vector3(startPos.x, startPos.y + 500, startPos.z);
+		outPos = new Vector3(startPos.x, startPos.y - 1500, startPos.z);
 		iTween.MoveTo(this.gameObject, iTween.Hash("position", outPos, "time", 0.5f, "easeType", iTween.EaseType.easeOutSine));
 	}
 }

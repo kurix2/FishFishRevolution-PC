@@ -28,7 +28,7 @@ public class TackleBoxUI : MonoBehaviour {
 	void Start ()
     {
         startPos = container.transform.position;
-        offscreenPos = new Vector3(container.transform.position.x - 150, container.transform.position.y, container.transform.position.z);
+        offscreenPos = new Vector3(container.transform.position.x - 300, container.transform.position.y, container.transform.position.z);
         container.transform.position = offscreenPos;
 
         fishCount = 0;

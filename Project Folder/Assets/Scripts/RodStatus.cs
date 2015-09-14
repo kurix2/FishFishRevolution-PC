@@ -294,14 +294,14 @@ public class RodStatus : MonoBehaviour
 
                 rodPullFactor = 0;
 
-                if (bobber.GetComponent<Bobber>().reelMeUp == true)
+                if (bobber.GetComponent<Bobber>().reelMeUp == true || Vector3.Distance(bobber.transform.position,boatPos) < 6.0f)
                     status = "reeling up";
 
                 break;
 
             // Hook has reached the boat, reel now goes up towards rodEnd
             case "reeling up":
-
+				
                 
 
                 float distance = Vector3.Distance(rb.position, rodEnd.transform.position);

@@ -25,6 +25,8 @@ public class NetworkManager : MonoBehaviour {
         portInput.text = "8888";
         StartServer();
 
+
+
         //countDownTimer = GameObject.Find("Timer Object");
      
     }

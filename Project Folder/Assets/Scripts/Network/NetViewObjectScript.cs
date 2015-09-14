@@ -29,6 +29,10 @@ public class NetViewObjectScript : MonoBehaviour
 
     void Start()
     {
+//		GameObject boat = GameObject.Find ("Fishing Boat");
+//		
+//		transform.SetParent(boat.transform);
+
         nView = GetComponent<NetworkView>();
         if (!nView.isMine)
         {

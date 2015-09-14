@@ -28,7 +28,7 @@ public class Bobber : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) 
     {
-        if (hitOcean) { 
+        if (hitOcean == true) { 
             if (other.tag == "BoatRadius")
             {
                 reelMeUp = true;

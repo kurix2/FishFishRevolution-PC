@@ -79,6 +79,9 @@ public class Cast : MonoBehaviour {
             rodEnd.transform.DetachChildren();
         
 		    bobber.GetComponent<Rigidbody>().useGravity = true;
+			if(gaugeValue <= .20f){
+				gaugeValue = .20f;
+			}
             rb.velocity = launchPoint.transform.forward * (gaugeValue * 60);
         }
 	}

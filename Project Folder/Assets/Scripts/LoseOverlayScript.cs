@@ -11,11 +11,10 @@ public class LoseOverlayScript : MonoBehaviour {
 	
 	private Vector3 startPos;
 	private Vector3 onScreenPos;
+	public static LoseOverlayScript loseOverlay;
 	
 	private bool showingUI;
-	
-	
-	
+
 	void Start()
 	{
 		
@@ -26,19 +25,19 @@ public class LoseOverlayScript : MonoBehaviour {
 		
 		
 		startPos = container.transform.position;
-		onScreenPos = new Vector3(container.transform.position.x, container.transform.position.y + 200, container.transform.position.z);
+		onScreenPos = new Vector3(container.transform.position.x, (Screen.height/2), container.transform.position.z);
+		container.transform.position = startPos;
 		
 		
 	}
 	
 	void Update(){
 		if (rod != null) {
-			if(status.getStatus() == "reset" && !showingUI){
-				Show();
-				Hide();
+			if (status.getStatus () == "reset" && !showingUI) {
+				Show ();
+				Hide ();
 			}
-		}
-		
+		} 
 	}
 	
 	

@@ -5,6 +5,8 @@ using System.Collections;
 
 public class Gauge : MonoBehaviour {
 
+	static Gauge fishGauge;
+
 	//Audio Sources & Clips
 	private AudioSource source;
 	public AudioClip fail;
@@ -99,6 +101,7 @@ public class Gauge : MonoBehaviour {
 				source.PlayOneShot(fail,0.5f);
                 Debug.Log("Line Snap!");
                 status.setStatus("reset");
+
                 barSize = defaultSize;
                 fishIconOffset = 0;
             }
@@ -147,4 +150,8 @@ public class Gauge : MonoBehaviour {
 
         }
     }
+
+	void Reset(){
+
+	}
 }
