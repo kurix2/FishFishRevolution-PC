@@ -310,7 +310,7 @@ public class RodStatus : MonoBehaviour
                     bobber.transform.parent = rodTip.transform;
                     if (!androidUIEnabled)
                     {
-                        nView.RPC("enableCaughtUI", RPCMode.All);
+                        nView.RPC("enableCaughtUI", RPCMode.All,hookedFish.getName(),hookedFish.getWeight());
                         androidUIEnabled = true;
                     }
 
@@ -347,6 +347,7 @@ public class RodStatus : MonoBehaviour
                 rb.constraints = orginalConstraint;
                 bobber.transform.position = rodTip.transform.position;
                 bobber.transform.parent = rodEnd.transform;
+                nView.RPC("showCastButton", RPCMode.All);
                 status = "standby";
 
                 break;
@@ -354,6 +355,7 @@ public class RodStatus : MonoBehaviour
             case "gameover":
                 if (!gameOver)
                     CameraAnimationScript.CamAnimSript.NextAnimation();
+                nView.RPC("showEndScreen", RPCMode.All);
                 gameOver = true;
                 // ???
                 /// Application.LoadLevel(Application.loadedLevel);
@@ -367,7 +369,13 @@ public class RodStatus : MonoBehaviour
     }
 
 
- 
+    [RPC]
+    public void showCastButton()
+    {
+        Debug.Log("Showing Cast Button");
+    }
+
+
     // Move these to another file
     [RPC]
     public void reeling(float reelSpd)
@@ -380,7 +388,6 @@ public class RodStatus : MonoBehaviour
 			}
 		} 
     }
-
 
 
     [RPC]
@@ -401,6 +408,7 @@ public class RodStatus : MonoBehaviour
     }
 
 
+
     [RPC]
     public void releaseFish()
     {
@@ -412,12 +420,24 @@ public class RodStatus : MonoBehaviour
 
 
     [RPC]
-    public void enableCaughtUI()
+    public void enableCaughtUI(string name, float weight)
     {
         Debug.Log("Enabling keep or release ui elements");
         //caughtFish = true;
     }
 
+    [RPC]
+    public void giveUp()
+    {
+        status = "gameover";
+        nView.RPC("showEndScreen", RPCMode.All);
+    }
+
+    [RPC]
+    public void showEndScreen()
+    {
+        // shows endscreen on phone
+    }
 
     [RPC]
     public void enableRestartButton()
