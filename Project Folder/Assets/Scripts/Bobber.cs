@@ -8,6 +8,7 @@ public class Bobber : MonoBehaviour {
     private bool hitOcean;
     public bool reelMeUp;
     Rigidbody rb;
+	public float distance;
 
 	// Use this for initialization
 	void Start () {
@@ -17,13 +18,13 @@ public class Bobber : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (transform.position.y < -1 && !hitOcean)
-        {
-            Debug.Log("-1");
-            rb.useGravity = false;
-            rb.isKinematic = true;
-            hitOcean = true;
-        }
+        if (transform.position.y < -1 && !hitOcean) {
+			Debug.Log ("-1");
+			rb.useGravity = false;
+			rb.isKinematic = true;
+			hitOcean = true;
+		}
+
     }
 
     void OnTriggerEnter(Collider other) 
@@ -33,8 +34,11 @@ public class Bobber : MonoBehaviour {
             {
                 reelMeUp = true;
             }
+
         }
     }
+
+
 
     public bool readyToRealUp()
     {
