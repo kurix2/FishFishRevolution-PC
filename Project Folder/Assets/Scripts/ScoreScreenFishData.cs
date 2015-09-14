@@ -43,11 +43,15 @@ public class ScoreScreenFishData : MonoBehaviour {
 
     public void Setup()
     {
-		Debug.Log ("Fish number is " + fishNumber);
+        fManager = FishManager.FishM;
+        Debug.Log("-----------------");
+        Debug.Log ("Fish number is " + fishNumber);
 		Debug.Log ("fManager.caughtFish.count" + fManager.caughtFish.Count);
-			fManager = FishManager.FishM;
-		if (fManager.caughtFish.Count >= fishNumber) {
-			Fish fish = fManager.caughtFish [fishNumber];
+        Debug.Log("-----------------");
+        if (fManager) { Debug.Log("fmanager OK"); }
+        else { Debug.Log("fmanager FAILED!!"); }
+        if (fManager.caughtFish.Count >= fishNumber) {
+			Fish fish = fManager.caughtFish [fishNumber-1];
 
 			string fishIconPath = "Prefabs/Fish/Icons/" + fish.getIcon ();
 			string stringToLoad = fishIconPath.Substring (0, fishIconPath.Length - 1);
@@ -115,7 +119,10 @@ public class ScoreScreenFishData : MonoBehaviour {
 				else
 					Debug.Log ("Error loading fish icon: Grade A");
 			}
-		}
+		} else
+        {
+           
+        }
 	}
 
 	public float GetScore(){
