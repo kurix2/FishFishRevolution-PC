@@ -65,6 +65,7 @@ public class ScoreScreenFishData : MonoBehaviour {
 			fishNameTxt.text = fish.getName ();
 			fishWeightTxt.text = fish.getWeight () + " ";
 
+			distance = fish.getDistance();
 			maxWeight = fish.getMaxW ();
 			weight = fish.getWeight ();
 			rarity = fish.getRarity();
@@ -76,7 +77,7 @@ public class ScoreScreenFishData : MonoBehaviour {
 			gradeScore = weight / maxWeight;
 			Debug.Log ("Fish Grade is" + gradeScore);
 
-			score = rarity+ (rarity * (gradeScore));
+			score = (rarity+ (rarity * (gradeScore))) + ((distance/70)*100);
 
 
 			if (gradeScore <= 0.30f) {
