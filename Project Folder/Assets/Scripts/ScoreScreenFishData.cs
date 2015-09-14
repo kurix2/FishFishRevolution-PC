@@ -8,6 +8,10 @@ public class ScoreScreenFishData : MonoBehaviour {
 
     public int fishNumber;
 
+    public GameObject FishData;
+    public Sprite failSprite;
+    public Sprite batsuSprite;
+
     public Image fishIcon;
     public Text fishNameTxt;
     public Text fishWeightTxt;
@@ -121,9 +125,23 @@ public class ScoreScreenFishData : MonoBehaviour {
 			}
 		} else
         {
-           
+           /* for (int i = 0; i < transform.childCount; ++i)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }*/
+
+            fishIcon.sprite = failSprite;
+            gradeIcon.sprite = batsuSprite;
+            fishNameTxt.text = "No Catch!";
+            fishWeightTxt.text = "0";
+
+            distance = 0;
+            maxWeight = 0;
+            weight = 0;
+            rarity = 0;
+
         }
-	}
+    }
 
 	public float GetScore(){
 		return score;

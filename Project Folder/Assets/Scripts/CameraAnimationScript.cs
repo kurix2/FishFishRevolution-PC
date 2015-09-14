@@ -6,6 +6,8 @@ public class CameraAnimationScript : MonoBehaviour {
     public static CameraAnimationScript CamAnimSript;
     public string scene;
 
+    private NetworkView nView;
+
     void Awake()
     {
         if (CamAnimSript == null)
@@ -15,6 +17,12 @@ public class CameraAnimationScript : MonoBehaviour {
     public void NextAnimation()
     {
         GetComponent<Animator>().speed = 1;
+
+        if (nView == null)
+        {
+            nView = GameObject.Find("NetworkView_TestObject(Clone)").GetComponent<NetworkView>();
+        }
+        nView.RPC("inTransition", RPCMode.All);
     }
 
 
@@ -23,6 +31,13 @@ public class CameraAnimationScript : MonoBehaviour {
         scene = s;
         if (scene == "ScoreScreen")
             ScoreScreen.SScreen.Show();
+
+        if (nView == null)
+        {
+            nView = GameObject.Find("NetworkView_TestObject(Clone)").GetComponent<NetworkView>();
+        }
+        if (scene != "TransitGameOver")
+            nView.RPC("transitionOver", RPCMode.All);
     }
 
 
@@ -31,9 +46,15 @@ public class CameraAnimationScript : MonoBehaviour {
         GetComponent<Animator>().speed = 0;
     }
 
+    public void showHighScore()
+    {
+        ScoreScreen.SScreen.Hide();
+        HighScoreScene.HSScreen.Show();
+        NextAnimation();
+    }
 
     void OnGUI()
-    {   
+    {   /*
         if (scene == "ScoreScreen")
             if (GUI.Button(new Rect(Screen.width / 2 + 200, Screen.height / 2, 200, 60), "High Score"))
             {
@@ -48,6 +69,6 @@ public class CameraAnimationScript : MonoBehaviour {
                 HighScoreScene.HSScreen.Hide();
                 SceneFade.SceneFader.EndScene();
             }
-
+            */
     }
 }

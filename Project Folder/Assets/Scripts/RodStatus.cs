@@ -442,7 +442,13 @@ public class RodStatus : MonoBehaviour
     [RPC]
     public void enableRestartButton()
     {
+        // enable the restart button on phone
+    }
 
+    [RPC]
+    public void enableHighScore()
+    {
+        CameraAnimationScript.CamAnimSript.showHighScore();
     }
     public Texture2D biteSplash;
     public void OnGUI()
@@ -451,6 +457,19 @@ public class RodStatus : MonoBehaviour
         {
             GUI.Label(new Rect(Screen.width / 2 - biteSplash.width / 2, Screen.height / 2 - biteSplash.height / 2, biteSplash.width * pullSplashScale, biteSplash.height * pullSplashScale), biteSplash);
         }
+    }
+
+  
+    [RPC]
+    public void inTransition()
+    {
+      // tells phone theres a animation transit going
+    }
+
+    [RPC]
+    public void transitionOver()
+    {
+        // tells phone theres a animation transit is over
     }
 
     void OnCollisionEnter(Collision col)
