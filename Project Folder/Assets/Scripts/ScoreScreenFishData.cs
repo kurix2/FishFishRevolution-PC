@@ -23,6 +23,7 @@ public class ScoreScreenFishData : MonoBehaviour {
 	public float maxWeight;
 	public float weight;
 	public float distance;
+	public Sprite maguro;
 
 	private Sprite gradeA;
 	private Sprite gradeB;
@@ -68,7 +69,10 @@ public class ScoreScreenFishData : MonoBehaviour {
 			if (tex != null)
 				fishIcon.sprite = Sprite.Create (tex, new Rect (0, 0, tex.width, tex.height), new Vector2 (0.5f, 0.5f));
 			else
-				Debug.Log ("Error loading fish icon: " + fish.getIcon ());
+			{Debug.Log ("Error loading fish icon: " + fish.getIcon ());
+				fishIcon.sprite = maguro;
+				}
+				
 
 			fishNameTxt.text = fish.getName ();
 			fishWeightTxt.text = fish.getWeight () + " ";

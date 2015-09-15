@@ -250,6 +250,7 @@ public class RodStatus : MonoBehaviour
                         Debug.Log("Caught a random fish");
 
                         fishAttached = true;
+						Gauge.fishGauge.enabled = true;
 
                         hookedFish = fishManager.GetComponent<FishManager>().hookFish();
 						hookedFish.setDistance(boatDistance);
@@ -332,7 +333,9 @@ public class RodStatus : MonoBehaviour
 
             // Fish has been caught, reset all values and remove the fish
             case "reset":
-                
+			    Gauge.fishGauge.enabled = false;    
+
+
                 line.GetComponent<Renderer>().enabled = false;
                 Destroy(hookHinge);
                 Destroy(fish);

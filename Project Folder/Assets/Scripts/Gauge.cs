@@ -5,7 +5,7 @@ using System.Collections;
 
 public class Gauge : MonoBehaviour {
 
-	static Gauge fishGauge;
+	public static Gauge fishGauge;
 
 	//Audio Sources & Clips
 	private AudioSource source;
@@ -40,6 +40,10 @@ public class Gauge : MonoBehaviour {
     private bool showUI;
 
     private bool snap;
+
+	void Awake(){
+		fishGauge = this;
+	}
     // Use this for initialization
     void Start () {
 		source = GetComponent<AudioSource>();

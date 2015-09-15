@@ -29,9 +29,11 @@ public class NetViewObjectScript : MonoBehaviour
 
     void Start()
     {
-//		GameObject boat = GameObject.Find ("Fishing Boat");
+		GameObject boat = GameObject.Find ("Rod Position");
 //		
-//		transform.SetParent(boat.transform);
+		transform.SetParent(boat.transform);
+		boat.transform.position = new Vector3 (0, -0.2f, 0);
+
 
         nView = GetComponent<NetworkView>();
         if (!nView.isMine)
@@ -40,7 +42,10 @@ public class NetViewObjectScript : MonoBehaviour
         }
 
         boat = GameObject.Find("Fishing Boat");
-        reel.rotation = Quaternion.AngleAxis(0, Vector3.right);
+        reel.rotation = Quaternion.AngleAxis(0, Vector3.left);
+		reel.transform.localScale = new Vector3(-1, 1, 1);
+
+
     }
 
     void Update()
@@ -69,8 +74,8 @@ public class NetViewObjectScript : MonoBehaviour
             
 		} else {
 
-            if (boat)
-                transform.position = new Vector3(transform.position.x, boat.transform.position.y + boatOffsetY, transform.position.z);
+//            if (boat)
+//                transform.position = new Vector3(transform.position.x, boat.transform.position.y + boatOffsetY, transform.position.z);
 
            /* Quaternion receivedRot = new Quaternion(0, 0, 0, 0);
             stream.Serialize(ref receivedRot);
